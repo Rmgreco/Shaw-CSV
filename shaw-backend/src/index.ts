@@ -5,7 +5,7 @@ import multer from 'multer';
 import sqlite3 from 'sqlite3';
 import csvParser from 'csv-parser';
 
-const app = express();
+export const app = express();
 const port = 3000;
 
 app.use(cors());
@@ -78,7 +78,7 @@ app.post('/api/files', upload.single('file'), (req, res) => {
     });
 
 
-    res.status(200).json({ message: 'File uploaded successfull', data: csvData });
+    res.status(200).json({ message: 'File uploaded successfully', data: csvData });
 });
 
 app.get('/api/users', (req, res) => {
