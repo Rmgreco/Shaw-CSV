@@ -16,7 +16,7 @@ interface CsvRow {
 
 
 const Home: React.FC = () => {
-  const [fileData, setFileData] = useState<CsvRow[]>([]); // Replace with your data type
+  const [fileData, setFileData] = useState<CsvRow[]>([]); 
   const [error, setError] = useState<string>('');
   const handleFileUpload = async (file: File) => {
     try {
@@ -55,14 +55,14 @@ const Home: React.FC = () => {
       const data = await response.json();
       console.log(data, "dois");
       
-      setFileData(data); // Update data with search results
+      setFileData(data); 
       setError('');
     } catch (error) {
       setError('Error searching data');
       console.error(error);
     }
   };
-// console.log(fileData, "aquicarau");
+
 
   return (
     <div >

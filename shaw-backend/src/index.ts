@@ -57,7 +57,7 @@ app.post('/api/files', upload.single('file'), (req, res) => {
     for (let i = 1; i < rows.length; i++) {
         const values = rows[i].split(',');
 
-        // Verifique se todas as propriedades estão presentes antes de adicionar ao array
+
         if (values.length === headers.length) {
             const rowData: CsvData = {};
             for (let j = 0; j < headers.length; j++) {
@@ -67,7 +67,7 @@ app.post('/api/files', upload.single('file'), (req, res) => {
         }
     }
 
-    // Store the CSV data in the database (SQLite)
+
     db.serialize(() => {
         db.run('CREATE TABLE IF NOT EXISTS csv_data (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, city TEXT, country TEXT, favorite_sport TEXT)');
         const stmt = db.prepare('INSERT INTO csv_data (name, city, country, favorite_sport) VALUES (?, ?, ?, ?)');

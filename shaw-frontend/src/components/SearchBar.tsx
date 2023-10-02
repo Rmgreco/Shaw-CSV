@@ -8,13 +8,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // Impede o envio padrão do formulário
+    e.preventDefault();
     onSearch(searchQuery);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column', 
+          alignItems: 'center',
+          marginBottom: '20px',
+        }}
+      >
         <input
           type="text"
           placeholder="Search..."
@@ -23,13 +30,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
           style={{
             padding: '10px',
             fontSize: '16px',
-            marginRight: '10px',
+            marginBottom: '10px', 
             border: '1px solid #ccc',
             borderRadius: '5px',
+            width: '100%', 
           }}
         />
         <button
-          type="submit" // Defina o tipo do botão como "submit"
+          type="submit"
           style={{
             padding: '10px 20px',
             fontSize: '16px',
@@ -38,6 +46,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             border: 'none',
             borderRadius: '5px',
             cursor: 'pointer',
+            width: '100%', 
           }}
         >
           Search

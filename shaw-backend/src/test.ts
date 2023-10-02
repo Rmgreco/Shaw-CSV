@@ -33,11 +33,11 @@ describe('CSV File Upload API', () => {
     it('should return user data based on a search query', (done) => {
         chai
             .request(app)
-            .get('/api/users?q=John') // Replace 'John' with a search term from your test data
+            .get('/api/users?q=John')
             .end((err, res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.be.an('array');
-                // You can add more assertions based on your requirements
+
                 done();
             });
     });
